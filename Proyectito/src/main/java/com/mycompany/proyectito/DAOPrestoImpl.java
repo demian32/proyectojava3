@@ -7,13 +7,13 @@ import org.hibernate.Query;
 
 public class DAOPrestoImpl extends DAO {
     
-    public void agregarPrestamo(Prestamolibro prestamo){
+    public static void agregarPrestamo(Prestamolibro prestamo){
         begin();
         getSession().save(prestamo);
         commit();
         close();
     }
-    public ArrayList<Prestamolibro> buscarTodosPrestamos() { 
+    public static ArrayList<Prestamolibro> buscarTodosPrestamos() { 
          begin();  
          Criteria c=getSession().createCriteria(Prestamolibro.class); 
          ArrayList<Prestamolibro> pre = (ArrayList<Prestamolibro>)c.list(); 
@@ -21,13 +21,13 @@ public class DAOPrestoImpl extends DAO {
          close();
          return pre;
     }
-    public void eliminarPrestamo(Prestamolibro prestamo){
+    public static void eliminarPrestamo(Prestamolibro prestamo){
         begin();
         getSession().delete(prestamo);
         commit();
         close();
     }
-    public Prestamolibro buscarPorId(int idpres){ 
+    public  static Prestamolibro buscarPorId(int idpres){ 
        begin(); 
       Query q = getSession().createQuery("from Prestamolibro where idpres = :idpres"); 
          q.setInteger("idpres",idpres); 
@@ -37,7 +37,7 @@ public class DAOPrestoImpl extends DAO {
  return pr;   
      
    }
-    public void actualizar(Prestamolibro p){
+    public static void actualizar(Prestamolibro p){
         begin();
         getSession().update(p);
         commit();

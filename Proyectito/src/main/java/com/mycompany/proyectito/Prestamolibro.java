@@ -56,6 +56,23 @@ public class Prestamolibro implements Serializable {
         this.idL = idL;
     }
 
+    public Prestamolibro(Integer idpres, Date fecha, Integer cantidad, Float total, Usuario idA, Libro idL) {
+        this.idpres = idpres;
+        this.fecha = fecha;
+        this.cantidad = cantidad;
+        this.total = total;
+        this.idA = idA;
+        this.idL = idL;
+    }
+
+    public Prestamolibro(Integer idpres, Float total) {
+        this.idpres = idpres;
+        this.total = total;
+    }
+
+   
+    
+
     public Integer getIdpres() {
         return idpres;
     }
